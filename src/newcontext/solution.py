@@ -13,7 +13,7 @@ class Solution:
     def getTerms(self,sentences):
         self.word_checker=enchant.Dict("en_US")
         tokens = nltk.word_tokenize(sentences.decode('utf8'))
-        words = [self.st.stem(w.lower()).encode('utf8') for w in tokens if w.isalnum() and self.word_checker.check(w) and self.st.stem(w.lower()) in self.model.vocab]
+        words = [w.lower().encode('utf8') for w in tokens if w.isalnum() and self.word_checker.check(w) and w.lower() in self.model.vocab]
         return words
 
     def generate(self):

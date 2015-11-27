@@ -26,7 +26,7 @@ class CleanDoc:
             
     def getTerms(self,sentences):
         tokens = nltk.word_tokenize(sentences.decode('utf8'))
-        words = [self.st.stem(w.lower()).encode('utf8') for w in tokens if w.isalnum() and self.word_checker.check(w) and w.lower() not in self.stops ]
+        words = [w.lower().encode('utf8') for w in tokens if w.isalnum() and self.word_checker.check(w) and w.lower() not in self.stops ]
         return words
 
 if __name__=='__main__':
